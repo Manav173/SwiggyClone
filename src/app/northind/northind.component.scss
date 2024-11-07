@@ -1,0 +1,8 @@
+button {
+    transition: transform 0.15s ease-in-out, background-color 0.15s ease-in-out;
+  }
+  
+  button.scale-95 {
+    transform: scale(0.95); /* Slightly scale down on click */
+  }
+  

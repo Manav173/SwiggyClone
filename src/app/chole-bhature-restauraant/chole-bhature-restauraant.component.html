@@ -1,0 +1,122 @@
+<div class="min-h-screen bg-gray-50 pr-2 md:pr-40 pl-2 md:pl-40">
+
+    <header class="bg-white shadow-sm">
+      <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+          <img src="swiggyLogo.png" alt="Logo" class="w-8 h-8" />
+          <div class="flex items-center space-x-2">
+            <span class="font-medium">Other</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </div>
+        
+        <nav class="flex items-center space-x-6">
+          <a href="https://www.swiggy.com/corporate" class="flex items-center space-x-1 text-gray-800 hover:text-orange-500 transition duration-300">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+            <span>Swiggy Corporate</span>
+          </a>
+          
+          
+          <a href="https://www.swiggy.com/offers-near-me" class="flex items-center space-x-1 text-gray-800 hover:text-orange-500 transition duration-300">
+            <span>Offers</span>
+            <span class="text-xs text-orange-500 font-semibold">NEW</span>
+          </a>
+          
+          <a href="https://www.swiggy.com/support" class="text-gray-800 hover:text-orange-500 transition duration-300">Help</a>
+
+          <button
+          (click)="goBack()"
+          class="text-gray-700 bg-gray-200 px-4 py-2 rounded-md font-medium hover:bg-gray-300 transition-colors duration-300"
+        >
+          ← Back to Main Website
+        </button>
+          
+        </nav>
+      </div>
+    </header>
+  
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+      <h1 class="text-3xl font-bold mb-2">Chole Bhature</h1>
+      <p class="text-gray-600 mb-6">Satisfy your cravings with these fluffy & flavoursome breads paired with Chole.</p>
+      
+      <h2 class="text-xl font-bold mb-6">3 Restaurants to explore</h2>
+  
+      <!-- Restaurant Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pl-10 md:pl-2 pr-10 md:pr-2">
+
+        <!-- Restaurant Card 1 -->
+        <a class="button" routerLink='/chole'>
+            <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div class="relative">
+                <img src="cbres1.png" alt="Hira's Sweets" class="w-full h-48 object-cover" />
+              </div>
+              <div class="p-4">
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="font-semibold">HIRA'S SWEETS</h3>
+                  <div class="flex items-center space-x-1 bg-green-700 text-white px-2 py-1 rounded text-sm">
+                    <span>4.3</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                  </div>
+                </div>
+                <p class="text-gray-500">Sweets</p>
+                <p class="text-gray-500">45-50 mins</p>
+                <p class="text-gray-500">Shahdara</p>
+              </div>
+            </div>
+        </a>
+      
+        <!-- Restaurant Card 2 - Arsh Family Restaurant -->
+        <a class="button" routerLink='/chole2'>
+            <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div class="relative">
+                <img src="cbres2.png" alt="Arsh Family Restaurant" class="w-full h-48 object-cover" />
+              </div>
+              <div class="p-4">
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="font-semibold">Arsh Family Restaurant</h3>
+                  <div class="flex items-center space-x-1 bg-green-700 text-white px-2 py-1 rounded text-sm">
+                    <span>4.2</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                  </div>
+                </div>
+                <p class="text-gray-500">Snacks</p>
+                <p class="text-gray-500">35-40 mins</p>
+                <p class="text-gray-500">Karol Bagh</p>
+              </div>
+            </div>
+        </a>
+
+        <!-- Restaurant Card 3 - Bangla Foods -->
+        <a class="button" routerLink='/chole3'>
+            <div class="rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <div class="relative">
+                <img src="cbres3.png" alt="Bangla Foods" class="w-full h-48 object-cover" />
+              </div>
+              <div class="p-4">
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="font-semibold">Bangla Foods</h3>
+                  <div class="flex items-center space-x-1 bg-green-700 text-white px-2 py-1 rounded text-sm">
+                    <span>4.3</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                  </div>
+                </div>
+                <p class="text-gray-500">Fast Food</p>
+                <p class="text-gray-500">30-35 mins</p>
+                <p class="text-gray-500">Gole Market</p>
+              </div>
+            </div>
+        </a>
+      </div>
+    </main>
+  </div>

@@ -1,0 +1,66 @@
+<nav class="bg-[#fe5201] text-white py-4 px-4 md:px-12 flex justify-between items-center relative md:pt-12">
+    <div class="flex items-center space-x-3 pl-2 md:pl-24">
+        <img src="swiggyLogo.png" alt="Swiggy Logo" class="h-12 w-12 border border-white rounded-xl p-1" />
+        <span class="text-3xl font-bold">Swiggy</span>
+    </div>
+
+    <!-- Hamburger Button -->
+    <div class="md:hidden flex items-center">
+        <button id="hamburger" (click)="toggleMobileMenu()" class="focus:outline-none">
+            <svg class="w-8 h-8" fill="none" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </button>
+    </div>
+
+    <!-- Menu Items -->
+    <div id="menu" class="hidden md:flex items-center space-x-8 pr-2 md:pr-24">
+        <a href="https://www.swiggy.com/corporate/" class="text-white font-bold">Swiggy Corporate</a>
+        <a href="https://partner.swiggy.com/login" class="text-white font-bold">Partner with us</a>
+        <a href="#" class="border border-white text-white font-bold px-6 py-3 rounded-xl flex items-center hover:bg-white hover:text-[#fe5201] transition">
+            Get the App
+        </a>
+
+        <!-- Conditionally render Sign In button or Logout button -->
+        <ng-container *ngIf="isLoggedIn; else showSignIn">
+            <a (click)="logout()" class="button bg-black text-white font-bold px-8 py-3 rounded-xl hover:bg-gray-800 transition">
+                Logout
+            </a>
+            <a class="button bg-black text-white font-bold px-8 py-3 rounded-xl hover:bg-gray-800 transition" routerLink="/cart">
+                <svg class="w-6 h-6" fill="none" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l3.6 7.59a2 2 0 001.8 1.21h8.28a2 2 0 001.8-1.21L21 6H7"></path>
+                </svg>
+            </a>
+        </ng-container>
+
+        <ng-template #showSignIn>
+            <a class="button bg-black text-white font-bold px-8 py-3 rounded-xl hover:bg-gray-800 transition" routerLink="/login">
+                Sign In
+            </a>
+        </ng-template>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden absolute left-0 right-0 top-16 bg-[#fe5201] z-20 p-4" [ngClass]="{'hidden': !isMobileMenuOpen}">
+        <a href="https://www.swiggy.com/corporate/" class="block text-white font-bold py-2">Swiggy Corporate</a>
+        <a href="https://partner.swiggy.com/login" class="block text-white font-bold py-2">Partner with us</a>
+        <a href="#" class="block border border-white text-white font-bold px-6 py-3 rounded-xl flex items-center hover:bg-white hover:text-[#fe5201] transition">
+            Get the App
+        </a>
+        <ng-container *ngIf="isLoggedIn; else showMobileSignIn">
+            <a (click)="logout()" class="button bg-red-600 text-white font-bold px-8 py-3 rounded-xl hover:bg-red-500 transition">
+                Logout
+            </a>
+            <a class="button bg-black text-white font-bold px-8 py-3 rounded-xl hover:bg-gray-800 transition" routerLink="/pizza">
+                <svg class="w-6 h-6" fill="none" stroke="white" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l3.6 7.59a2 2 0 001.8 1.21h8.28a2 2 0 001.8-1.21L21 6H7"></path>
+                </svg>
+            </a>
+        </ng-container>
+        <ng-template #showMobileSignIn>
+            <a class="button bg-black text-white font-bold px-8 py-3 rounded-xl hover:bg-gray-800 transition" routerLink="/login">
+                Sign In
+            </a>
+        </ng-template>
+    </div>
+</nav>

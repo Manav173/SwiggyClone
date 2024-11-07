@@ -1,0 +1,28 @@
+<div class="container mx-auto px-4 py-8 pr-10 md:pr-40 pl-10 md:pl-40 pt-10 md:pt-20">
+    <h1 class="text-2xl font-bold mb-8">Cities with grocery delivery</h1>
+    
+    <div class="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-4 gap-4">
+      <div *ngFor="let city of visibleCities" 
+           class="rounded-lg border border-gray-200 p-4 text-center cursor-pointer hover:shadow-md transition-shadow">
+        <a [href]="city.link" class="text-gray-700 text-lg">
+            Order grocery delivery in {{ city.name }}
+        </a>
+      </div>
+      
+      <div *ngIf="!showAll" 
+           (click)="toggleShowAll()"
+           class="rounded-lg border border-gray-200 p-4 text-center cursor-pointer hover:shadow-md transition-shadow">
+        <span class="text-orange-500 text-lg flex items-center justify-center">
+          Show More
+          <svg xmlns="http://www.w3.org/2000/svg" 
+               class="h-5 w-5 ml-1" 
+               viewBox="0 0 20 20" 
+               fill="currentColor">
+            <path fill-rule="evenodd" 
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" 
+                  clip-rule="evenodd" />
+          </svg>
+        </span>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,73 @@
+<div class="max-w-4xl mx-auto px-4 py-8">
+    <div class="mb-6">
+        <button
+          (click)="goBack()"
+          class="text-gray-700 bg-gray-200 px-4 py-2 rounded-md font-medium hover:bg-gray-300 transition-colors duration-300"
+        >
+          ← Back to Restaurants
+        </button>
+      </div>
+    <!-- Introduction Section -->
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">Prem Dhaba</h1>
+      <h2 class="text-2xl font-bold text-gray-800 mb-4">Our Culinary Delights</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto">
+        Discover our carefully curated menu featuring both traditional favorites and innovative dishes. 
+        Each item is crafted with premium ingredients and prepared fresh to order.
+      </p>
+    </div>
+  
+    <!-- Menu Section -->
+    <div class="space-y-6">
+      <div *ngFor="let foodItem of foodItems" class="bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
+        <div class="p-6 flex flex-col md:flex-row justify-between">
+          
+          <!-- Menu Item Info -->
+          <div class="flex-1 pr-6">
+            <div class="flex items-center mb-2">
+              <div class="w-4 h-4 mr-2">
+                <ng-container *ngIf="foodItem.isVegetarian; else nonVegIcon">
+                  <div class="w-4 h-4 border-2 border-green-600 flex items-center justify-center">
+                    <div class="w-2 h-2 bg-green-600 rounded-full"></div>
+                  </div>
+                </ng-container>
+                <ng-template #nonVegIcon>
+                  <div class="w-4 h-4 border-2 border-red-600 flex items-center justify-center">
+                    <div class="w-2 h-2 bg-red-600 rounded-full"></div>
+                  </div>
+                </ng-template>
+              </div>
+              <h3 class="text-lg font-semibold text-gray-800">{{ foodItem.name }}</h3>
+            </div>
+            <p class="text-gray-700 font-medium mb-2">₹{{ foodItem.price }}</p>
+            <div class="flex items-center mb-2">
+              <span class="text-yellow-400 mr-1">★</span>
+              <span class="text-green-600 font-medium">{{ foodItem.rating }}</span>
+              <span class="text-gray-500 text-sm ml-1">({{ foodItem.ratingCount }})</span>
+            </div>
+            <p class="text-gray-600 text-sm">{{ foodItem.description }}</p>
+          </div>
+          
+          <!-- Menu Item Actions - Updated to match the image -->
+          <div class="flex flex-col items-center mt-4 md:mt-0">
+            <img 
+              [src]="foodItem.image" 
+              [alt]="foodItem.name"
+              class="w-32 h-32 object-cover rounded-lg mb-3"
+            />
+            <button 
+            (mousedown)="toggleButtonState(foodItem, true)" 
+            (mouseup)="toggleButtonState(foodItem, false)" 
+            (mouseleave)="toggleButtonState(foodItem, false)"
+            [ngClass]="{'scale-95 bg-green-600': foodItem.buttonPressed}"  
+            (click)="addToCart(foodItem)"
+            class="bg-green-500 text-white px-8 py-2 rounded-md font-medium hover:bg-green-600 transition-transform duration-150 ease-in-out uppercase tracking-wider"
+          >
+              Add
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
