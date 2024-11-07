@@ -1,0 +1,61 @@
+<div class="container mx-auto px-4 py-8 max-w-3xl">
+    <div class="mb-6 flex items-center space-x-4">
+      <button (click)="goBack()" class="bg-[#fe5201] text-gray-700 px-4 py-2 rounded-md font-medium hover:bg-gray-300 transition-colors duration-300">
+        ← Back to Main Website
+      </button>
+    </div>
+  
+    <!-- Order History Title -->
+    <div class="flex items-center justify-between mb-8">
+      <h1 class="text-3xl font-bold text-gray-800">Order History</h1>
+      <span class="text-sm text-gray-500">{{ orderHistory.length }} orders</span>
+    </div>
+  
+    <!-- Empty State -->
+    <div *ngIf="orderHistory.length === 0" class="bg-gray-50 rounded-lg shadow">
+      <div class="flex flex-col items-center justify-center py-12">
+        <div class="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mb-4">
+          <svg class="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+          </svg>
+        </div>
+        <p class="text-gray-600 text-lg mb-2">You have no previous orders</p>
+        <p class="text-gray-500 text-sm">Start shopping to make your first order!</p>
+      </div>
+    </div>
+  
+    <!-- Display Orders -->
+    <div *ngIf="orderHistory.length > 0" class="space-y-4">
+      <div *ngFor="let order of orderHistory" class="bg-white rounded-lg shadow hover:shadow-lg transition-shadow duration-200">
+        <div class="p-6">
+          <div class="flex items-center justify-between">
+            <div class="flex flex-col items-start">
+              <!-- Order Details -->
+              <h2 class="text-lg font-semibold text-gray-800 mb-1">Order</h2>
+              <p class="text-gray-500 text-sm mb-2">Placed on:{{ datePipe.transform(order.date, 'short') }}</p>
+  
+              <div class="space-y-2">
+                <div *ngFor="let item of order.items" class="flex">
+                  <p>{{ item.name }} (x {{ item.quantity }}) = &nbsp;</p>
+                  <p>₹{{ (item.price * item.quantity).toFixed(2) }}</p>
+                </div>
+              </div>
+            </div>
+            <!-- Price and View Details -->
+            <div class="flex flex-col items-end space-y-2">
+              <p class="font-bold text-lg">Total: ₹{{ order.totalPrice.toFixed(2) }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Total Order Value -->
+    <div class="bg-[#fe5201] rounded-lg shadow mt-6 p-6">
+      <div class="flex justify-between text-gray-600">
+        <span class="text-lg font-semibold">Total Spent</span>
+        <span class="text-2xl font-bold text-gray-800">₹{{ totalPrice.toFixed(2) }}</span>
+      </div>
+    </div>
+  </div>
+  

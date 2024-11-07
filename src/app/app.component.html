@@ -1,0 +1,12 @@
+<ng-container *ngIf="!isFullPageRoute()">
+    <app-navbar (loginStateChange)="handleLoginStateChange($event)"></app-navbar>
+    <app-hero></app-hero>
+    <app-food-categories></app-food-categories>
+    <app-groceries></app-groceries>
+    <app-restaurants></app-restaurants>
+    <app-food-cities></app-food-cities>
+    <app-grocery-cities></app-grocery-cities>
+    <app-footer></app-footer>
+</ng-container>
+<router-outlet></router-outlet>
+  

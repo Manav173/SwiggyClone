@@ -1,0 +1,86 @@
+<div class="max-w-7xl mx-auto px-4 py-8 pr-10 md:pr-40 pl-10 md:pl-40">
+    <div class="flex items-center justify-between mb-8">
+      <h1 class="text-2xl font-bold">Discover best restaurants on Dineout</h1>
+      <div class="flex gap-2">
+        <button 
+          class="p-3 bg-gray-100 rounded-full hover:bg-gray-200 disabled:opacity-50"
+          (click)="previousSlide()"
+          [disabled]="currentIndex === 0"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button 
+          class="p-3 bg-gray-100 rounded-full hover:bg-gray-200 disabled:opacity-50"
+          (click)="nextSlide()"
+          [disabled]="currentIndex >= restaurants.length / itemsPerSlide - 1"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Updated grid layout for mobile -->
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+      <div *ngFor="let restaurant of visibleRestaurants" 
+           class="rounded-lg overflow-hidden shadow-lg bg-white transition-transform duration-300 hover:scale-[1.02]">
+        <!-- Restaurant Image -->
+        <a [href]="restaurant.url" target="_blank">
+        <div class="relative h-48 overflow-hidden">
+          <img [src]="restaurant.image" [alt]="restaurant.name" class="w-full h-full object-cover"/>
+          <div class="absolute bottom-3 left-3">
+            <h2 class="text-white text-xl font-bold">{{ restaurant.name }}</h2>
+          </div>
+          <div class="absolute bottom-3 right-8 bg-green-600 text-white rounded-full h-4 w-4 flex items-center justify-center">
+            <span class="text-xs">★</span>
+          </div>
+          <div class="absolute bottom-2 right-2 text-white">
+            <span>{{ restaurant.rating }}</span>
+          </div>    
+        </div>
+
+        <!-- Restaurant Details -->
+        <div class="p-4">
+          <div class="flex justify-between items-start mb-3">
+            <div>
+              <p class="text-gray-600 text-xs">{{ restaurant.cuisine.join(' • ') }}</p>
+              <p class="text-gray-600 text-xs">{{ restaurant.location }}</p>
+            </div>
+            <div class="text-right">
+              <p class="text-gray-600 text-xs">{{ restaurant.price }}</p>
+              <p class="text-gray-600 text-xs">{{ restaurant.distance }}</p>
+            </div>
+          </div>
+  
+          <!-- Features -->
+          <div class="flex gap-2 mb-3">
+            <span *ngFor="let feature of restaurant.features" 
+                  class="bg-[rgba(239,241,243,255)] text-gray-600 text-xs flex items-center gap-1 rounded-lg">
+              {{ feature }}
+            </span>
+          </div>
+  
+          <!-- Offers -->
+          <div class="space-y-2">
+            <div class="bg-[rgba(27,166,115,255)] text-white px-3 py-2 rounded-lg flex items-center justify-between">
+              <span class="text-sm font-bold">{{ restaurant.mainOffer }}</span>
+              <span class="text-xs font-bold">+{{ restaurant.additionalOffers }} more</span>
+            </div>
+            <div class="bg-[rgba(200,248,230,255)] text-green-700 px-3 py-2 rounded-lg text-sm">
+              {{ restaurant.bankOffer }}
+            </div>
+          </div>
+        </div>
+      </a>
+      </div>
+    </div>
+  </div>
+
+
+  
+  <div>
+    <img src="getSwiggyApp.png" alt="get the app">
+  </div>  
