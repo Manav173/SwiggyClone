@@ -84,3 +84,18 @@ SwiggyClone is a web application designed to replicate the core features of Swig
    - Shows the total amount spent across all orders, along with a "Back to Main Website" button for easy navigation.
 
    ![Order History](https://github.com/user-attachments/assets/c804874e-d759-4c8c-bcee-bea229c24a04)
+
+### MockAPI Integration
+   - This project utilizes **MockAPI** for simulating backend API endpoints to handle and manage data interactions during development and testing. The API endpoint for the        Swiggy Clone project is hosted at:
+
+     Api LinKK :- https://6729b8b46d5fa4901b6e1247.mockapi.io/:endpoint
+
+   ![image](https://github.com/user-attachments/assets/43821ef0-87ec-4a2e-8ea9-bbc5010aad79)
+
+### MockAPI Integration Resource Data
+   - The "Resource data" section in the Mockapi.io platform displays JSON data for an order, including customer details and order information. The data includes contact           information, order specifics, and the total price. The platform allows users to edit or replace this data through the provided interface.
+
+   ![image](https://github.com/user-attachments/assets/8f633631-21ea-4534-abf4-4276a160dc33)
+
+
+
